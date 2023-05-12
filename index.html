@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umbrella</title>
+    <link rel="stylesheet" href="Css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <section>
+        <div class="box">
+            <div class="subbox1">
+                <img src="img/Yello umbrella.png" alt="" width="300px" class="imgcls" id="myImage">
+                <div id="preview">
+
+                </div>
+            </div>
+            <div class="subbox2">
+
+                <h3>COUSTOM UMBRELLA</h3> <br>
+                <p>upload a lgo for an instant preview</p> <br>
+                <p>.png and .jpg files only.Max file size is 5mb</p> <br>
+
+
+                <button id="pinkButton" class="color-button" data-color="red"></button>
+                <button id="blueButton" class="color-button" data-color="blue"></button>
+                <button id="yellowButton" class="color-button" data-color="yellow"></button>
+
+                <br><br>
+                <form action="" method="post">
+                    <div class="button-browse">
+                        <img src="img/upload_icon.svg" alt="" width="20px"> <input type="file" name="upload_file"
+                            class="form-control " placeholder="Enter Name" id="upload_file"
+                            onchange="getImagePreview(event)" class="inputbox">
+                    </div>
+
+                </form>
+
+
+            </div>
+
+        </div>
+
+
+
+        <script>
+            function getImagePreview(event) {
+                var image = URL.createObjectURL(event.target.files[0]);
+                var imagediv = document.getElementById('preview');
+                var newimg = document.createElement('img');
+                imagediv.innerHTML = '';
+                newimg.src = image;
+                newimg.width = "60";
+
+                imagediv.appendChild(newimg);
+            }
+
+
+            const pinkButton = document.getElementById('pinkButton');
+            const blueButton = document.getElementById('blueButton')
+            const yellowButton = document.getElementById('yellowButton');
+            const image = document.getElementById('myImage');
+
+            pinkButton.addEventListener('click', function () {
+                image.style.filter = "none";
+                image.src = "img/Pink umbrella.png";
+
+                image.classList.add('rotate-animation');
+                setTimeout(function () {
+                    image.classList.remove('rotate-animation');
+                }, 4000);
+            });
+
+            yellowButton.addEventListener('click', function () {
+                image.style.filter = "none";
+                image.src = "img/Yello umbrella.png";
+
+                image.classList.add('rotate-animation');
+                setTimeout(function () {
+                    image.classList.remove('rotate-animation');
+                }, 4000);
+
+            });
+
+            blueButton.addEventListener('click', function () {
+                image.style.filter = "none";
+                image.src = "img/Blue umbrella (1).png";
+
+                image.classList.add('rotate-animation');
+                setTimeout(function () {
+                    image.classList.remove('rotate-animation');
+                }, 4000);
+            })
+
+        </script>
+</body>
+
+</html>
